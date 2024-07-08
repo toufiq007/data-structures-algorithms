@@ -35,8 +35,10 @@ function bubbleSort(array) {
  */
 function improveBubbleSort(array) {
   let temp;
-  for (let i = 0; i < array.length; i++) { // this is for number of pass
-    for (let j = 0; j < array.length - i; j++) { // this is for number of comparision
+  for (let i = 0; i < array.length; i++) {
+    // this is for number of pass
+    for (let j = 0; j < array.length - i; j++) {
+      // this is for number of comparision
       if (array[j] > array[j + 1]) {
         temp = array[j];
         array[j] = array[j + 1];
@@ -47,3 +49,32 @@ function improveBubbleSort(array) {
   return array;
 }
 //console.log(bubbleSort(myArr));
+
+/**
+ * optimized bubble sort
+ * it is then used when our array is almost sorted
+ * it is the most improve version of bubble sort
+ */
+
+function improveBubbleSort(array) {
+  let temp;
+  let flag = 0;
+  for (let i = 0; i < array.length; i++) {
+    // this is for number of pass
+    for (let j = 0; j < array.length - i; j++) {
+      // this is for number of comparision
+      if (array[j] > array[j + 1]) {
+        temp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
+        flag++;
+      }
+    }
+    if (flag === 0) {
+      break;
+    }
+  }
+  return array;
+}
+
+console.log(improveBubbleSort(myArr));
