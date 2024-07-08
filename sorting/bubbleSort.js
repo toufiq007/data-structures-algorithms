@@ -26,4 +26,24 @@ function bubbleSort(array) {
   return array;
 }
 
-// console.log(bubbleSort(myArr));
+/**
+ * improve bubble sort
+ * remove unnessary comparison for sorting this array with bubble sort
+ * step:1: in inner loop when we continue the loop j < array.length then unnsessary comparision occurs
+ * step:2: for remove this we must reduce our comparison j < array.length - i
+ * because after every pass the most largest element place at the correct position so no need to compare this with the previous element
+ */
+function improveBubbleSort(array) {
+  let temp;
+  for (let i = 0; i < array.length; i++) { // this is for number of pass
+    for (let j = 0; j < array.length - i; j++) { // this is for number of comparision
+      if (array[j] > array[j + 1]) {
+        temp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
+      }
+    }
+  }
+  return array;
+}
+//console.log(bubbleSort(myArr));
